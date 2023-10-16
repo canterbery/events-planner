@@ -1,4 +1,5 @@
 import reactPlugin from '@vitejs/plugin-react';
+import path from 'path';
 import { type ConfigEnv, defineConfig, loadEnv } from 'vite';
 import tsconfigPathsPlugin from 'vite-tsconfig-paths';
 
@@ -21,6 +22,12 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
           target: VITE_APP_PROXY_SERVER_URL,
           changeOrigin: true,
         },
+      },
+    },
+    resolve: {
+      alias: {
+        '@assets': path.resolve(__dirname, './src/assets'),
+        '~': path.resolve(__dirname, './src'),
       },
     },
   });
