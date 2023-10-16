@@ -1,5 +1,3 @@
-# Zenbit
-
 ## ℹ️ General Info
 
 Test task
