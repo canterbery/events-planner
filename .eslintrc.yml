@@ -63,9 +63,9 @@ rules:
         - class
       next: export
   simple-import-sort/imports:
-    - error
+    - off
   simple-import-sort/exports:
-    - error
+    - off
   import/no-unresolved:
     - off
   import/extensions:
