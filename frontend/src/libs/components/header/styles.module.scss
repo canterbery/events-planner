@@ -1,0 +1,26 @@
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 80px;
+  background: var(--black);
+  padding-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.logInBtn {
+  background-color: var(--black);
+  color: var(--light-gold);
+  border: 1px solid var(--light-gold);
+}
+
+.signUpBtn {
+  background-color: var(--light-gold);
+  color: var(--white);
+  border: none;
+}
