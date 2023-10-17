@@ -1,0 +1,42 @@
+.authLayout {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: var(--white);
+}
+
+.scrollableFormWrapper {
+  flex-basis: 600px;
+  height: 100%;
+  overflow: auto;
+}
+
+.backgroundImg {
+  flex: 1;
+  height: 100%;
+  background-image: url("@assets/img/city-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: cover;
+}
+
+.formWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.formWrapperInner {
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+}
