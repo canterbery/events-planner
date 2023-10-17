@@ -1,0 +1,23 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 5px;
+  padding: 14px 0 14px 19px;
+  color: var(--input-text);
+  font-size: 14px;
+  font-family: Lato, sans-serif;
+  background: var(--input-bg);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  outline: none;
+}
+
+.text {
+  font-weight: 700;
+}
