@@ -1,0 +1,57 @@
+.formWrapper {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.authFormTitle {
+  align-self: flex-start;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.form {
+  width: 100%;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  border: none;
+}
+
+.forgotPasswordLink {
+  color: var(--light-gold);
+}
+
+.forgotPasswordText {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Lato, sans-serif;
+  transition: color 0.3s ease;
+  margin: 10px 0 30px;
+  text-align: end;
+  cursor: pointer;
+}
+
+.signUpLink {
+  color: var(--light-gold);
+  cursor: pointer;
+}
+
+.signUpText {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Lato, sans-serif;
+}
+
+.signInBtn {
+  border: none;
+  background-color: var(--light-gold);
+  color: var(--white);
+}
