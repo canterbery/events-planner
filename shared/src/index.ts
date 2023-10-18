@@ -35,3 +35,7 @@ export {
   userSignUpValidationSchema,
   userSignInValidationSchema,
 } from './packages/users/users.js';
+export {
+  type DealEntityInstance,
+  DealsApiPath,
+} from './packages/deals/deals.js';
