@@ -1,0 +1,44 @@
+.formWrapper {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.authFormTitle {
+  align-self: flex-start;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.form {
+  width: 100%;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  border: none;
+}
+
+.signUpBtn {
+  margin-top: 60px;
+  border: none;
+  background-color: var(--light-gold);
+  color: var(--white);
+}
+
+.signInLink {
+  color: var(--light-gold);
+  cursor: pointer;
+}
+
+.signInText {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Lato, sans-serif;
+}

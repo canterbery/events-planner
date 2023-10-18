@@ -1,11 +1,13 @@
-import { Button, Input } from '~/libs/components/components.js';
+import { Button, Input, Link } from '~/libs/components/components.js';
 import { useAppForm, useCallback } from '~/libs/hooks/hooks.js';
 import {
   type UserSignUpRequestDto,
   userSignUpValidationSchema,
 } from '~/packages/users/users.js';
+import styles from './styles.module.scss';
 
 import { DEFAULT_SIGN_UP_PAYLOAD } from './libs/constants.js';
+import { AppRoute } from '~/libs/enums/enums.js';
 
 type Properties = {
   onSubmit: (payload: UserSignUpRequestDto) => void;
@@ -25,10 +27,10 @@ const SignUpForm: React.FC<Properties> = ({ onSubmit }) => {
   );
 
   return (
-    <>
-      <h3>Sign Up</h3>
-      <form onSubmit={handleFormSubmit}>
-        <p>
+    <div className={styles.formWrapper}>
+      <h2 className={styles.authFormTitle}>Sign Up</h2>
+      <form onSubmit={handleFormSubmit} className={styles.form}>
+        <fieldset className={styles.fieldset}>
           <Input
             type="text"
             label="Email"
@@ -37,20 +39,30 @@ const SignUpForm: React.FC<Properties> = ({ onSubmit }) => {
             control={control}
             errors={errors}
           />
-        </p>
-        <p>
+
           <Input
             type="text"
             label="Password"
-            placeholder="Enter your password"
+            placeholder="Enter password"
             name="password"
             control={control}
             errors={errors}
           />
+        </fieldset>
+        <Button
+          type="submit"
+          label="Sign up"
+          hasFullWidth
+          classname={styles.signUpBtn}
+        />
+        <p className={styles.signInText}>
+          <span>Already have an account? </span>
+          <Link to={AppRoute.SIGN_IN} className={styles.signInLink}>
+            Sign In
+          </Link>
         </p>
-        <Button type="submit" label="Sign up" />
       </form>
-    </>
+    </div>
   );
 };
 
