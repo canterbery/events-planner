@@ -23,6 +23,10 @@ import {
   type IServerAppApi,
 } from './libs/interfaces/interfaces.js';
 import { type ServerAppRouteParameters } from './libs/types/types.js';
+import { authorization } from '~/libs/plugins/authorization/authorization.js';
+import { userService } from '~/packages/users/users.js';
+import { token } from '../token/token.js';
+import { WHITE_ROUTES } from './libs/constants/constants.js';
 
 type Constructor = {
   config: IConfig;
@@ -172,10 +176,20 @@ class ServerApp implements IServerApp {
     );
   }
 
+  private async initPlugins(): Promise<void> {
+    await this.app.register(authorization, {
+      whiteRoutesConfig: WHITE_ROUTES,
+      userService,
+      token,
+    });
+  }
+
   public async init(): Promise<void> {
     this.logger.info('Application initialization…');
 
     await this.initServe();
+
+    await this.initPlugins();
 
     await this.initMiddlewares();
 
