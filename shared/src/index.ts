@@ -3,6 +3,7 @@ export {
   AppEnvironment,
   ContentType,
   ServerErrorType,
+  ExceptionMessage,
 } from './libs/enums/enums.js';
 export { ApplicationError, HttpError } from './libs/exceptions/exceptions.js';
 export { configureString } from './libs/helpers/helpers.js';
@@ -32,6 +33,8 @@ export {
   type UserSignUpRequestDto,
   type UserSignUpResponseDto,
   type UserSignInRequestDto,
+  type UserAuthResponseDto,
+  type UserSignInResponseDto,
   userSignUpValidationSchema,
   userSignInValidationSchema,
 } from './packages/users/users.js';
