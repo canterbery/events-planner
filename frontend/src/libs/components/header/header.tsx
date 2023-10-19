@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../components.js';
 import styles from './styles.module.scss';
 import { useCallback } from 'react';
@@ -14,7 +14,7 @@ type Properties = {
 const Header: React.FC<Properties> = ({ user }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
+  const { pathname } = useLocation();
   const handleLogInClick = useCallback(() => {
     navigate(AppRoute.SIGN_IN);
   }, [navigate]);
@@ -26,7 +26,7 @@ const Header: React.FC<Properties> = ({ user }) => {
   }, [dispatch]);
   return (
     <div className={styles.header}>
-      {!user && (
+      {pathname === AppRoute.ROOT && (
         <>
           <Button
             label="Sign In"
