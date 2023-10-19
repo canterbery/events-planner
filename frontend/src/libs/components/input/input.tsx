@@ -8,6 +8,7 @@ import {
 import { useFormController } from '~/libs/hooks/hooks.js';
 import styles from './styles.module.scss';
 import { getValidClassNames } from '~/libs/helpers/helpers.js';
+import { ErrorMessage } from '../components.js';
 
 type Properties<T extends FieldValues> = {
   control: Control<T, null>;
@@ -33,7 +34,11 @@ const Input = <T extends FieldValues>({
   const error = errors[name]?.message;
   const hasError = Boolean(error);
 
-  const classNames = getValidClassNames(styles.input, className);
+  const classNames = getValidClassNames(
+    styles.input,
+    className,
+    hasError && styles.error,
+  );
 
   return (
     <label className={styles.label}>
@@ -44,7 +49,7 @@ const Input = <T extends FieldValues>({
         placeholder={placeholder}
         className={classNames}
       />
-      {hasError && <span>{error as string}</span>}
+      <ErrorMessage error={error as string} />
     </label>
   );
 };

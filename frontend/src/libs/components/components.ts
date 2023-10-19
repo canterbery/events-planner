@@ -9,3 +9,4 @@ export { Header } from './header/header.js';
 export { PublicRoute } from './public-route/public-route.js';
 export { ProtectedRoute } from './protected-route/protected-route.js';
 export { Loader } from './loader/loader.js';
+export { ErrorMessage } from './error-message/error-message.js';
