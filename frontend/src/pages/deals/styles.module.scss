@@ -1,0 +1,21 @@
+.wrapper {
+  width: 100%;
+  height: calc(100vh - 80px);
+  padding: 35px 60px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--light-gold);
+  margin-bottom: 20px;
+}
+
+.dealsWrapper {
+  flex-grow: 1;
+  display: grid;
+  grid-template: 1fr 1fr/ 1fr 1fr;
+  gap: 10px;
+}

@@ -8,18 +8,22 @@ import { configureStore } from '@reduxjs/toolkit';
 import { AppEnvironment } from '~/libs/enums/enums.js';
 import { type IConfig } from '~/libs/packages/config/config.js';
 import { authApi } from '~/packages/auth/auth.js';
+import { dealsApi } from '~/packages/deals/deals.js';
 import { userApi } from '~/packages/users/users.js';
 import { reducer as authReducer } from '~/slices/auth/auth.js';
 import { reducer as usersReducer } from '~/slices/users/users.js';
+import { reducer as dealsReducer } from '~/slices/deals/deals.js';
 
 type RootReducer = {
   auth: ReturnType<typeof authReducer>;
   users: ReturnType<typeof usersReducer>;
+  deals: ReturnType<typeof dealsReducer>;
 };
 
 type ExtraArguments = {
   authApi: typeof authApi;
   userApi: typeof userApi;
+  dealsApi: typeof dealsApi;
 };
 
 class Store {
@@ -37,6 +41,7 @@ class Store {
       reducer: {
         auth: authReducer,
         users: usersReducer,
+        deals: dealsReducer,
       },
       middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware({
@@ -52,6 +57,7 @@ class Store {
     return {
       authApi,
       userApi,
+      dealsApi,
     };
   }
 }
