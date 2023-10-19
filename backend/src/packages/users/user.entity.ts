@@ -1,4 +1,5 @@
 import { type IEntity } from '~/libs/interfaces/interfaces.js';
+import { type UserPrivateData } from './users.js';
 
 class UserEntity implements IEntity {
   private 'id': number | null;
@@ -79,6 +80,13 @@ class UserEntity implements IEntity {
   } {
     return {
       email: this.email,
+      passwordHash: this.passwordHash,
+      passwordSalt: this.passwordSalt,
+    };
+  }
+
+  public get privateData(): UserPrivateData {
+    return {
       passwordHash: this.passwordHash,
       passwordSalt: this.passwordSalt,
     };
