@@ -9,8 +9,19 @@ class UserRepository implements IRepository {
     this.userModel = userModel;
   }
 
-  public find(): ReturnType<IRepository['find']> {
-    return Promise.resolve(null);
+  public async find(id: number): Promise<UserEntity | null> {
+    const user = await this.userModel.query().findById(id).first();
+
+    if (!user) {
+      return null;
+    }
+
+    return UserEntity.initialize({
+      id: user.id,
+      email: user.email,
+      passwordHash: user.passwordHash,
+      passwordSalt: user.passwordSalt,
+    });
   }
 
   public async findAll(): Promise<UserEntity[]> {
@@ -33,6 +44,23 @@ class UserRepository implements IRepository {
       .execute();
 
     return UserEntity.initialize(item);
+  }
+
+  public async findByEmail(email: string): Promise<UserEntity | null> {
+    const user = await this.userModel
+      .query()
+      .where('email', 'ilike', email)
+      .first();
+
+    if (!user) {
+      return null;
+    }
+    return UserEntity.initialize({
+      id: user.id,
+      email: user.email,
+      passwordHash: user.passwordHash,
+      passwordSalt: user.passwordSalt,
+    });
   }
 
   public update(): ReturnType<IRepository['update']> {
