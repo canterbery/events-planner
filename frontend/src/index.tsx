@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 
 import {
   App,
+  ProtectedRoute,
   RouterProvider,
   StoreProvider,
 } from '~/libs/components/components.js';
@@ -13,6 +14,7 @@ import { store } from '~/libs/packages/store/store.js';
 import { Auth } from '~/pages/auth/auth.js';
 import { Landing } from './pages/landing/landing.js';
 import { Deals } from './pages/deals/deals.js';
+import { PublicRoute } from './libs/components/components.js';
 
 createRoot(document.querySelector('#root') as HTMLElement).render(
   <StrictMode>
@@ -25,19 +27,35 @@ createRoot(document.querySelector('#root') as HTMLElement).render(
             children: [
               {
                 path: AppRoute.ROOT,
-                element: <Landing />,
+                element: (
+                  <PublicRoute>
+                    <Landing />
+                  </PublicRoute>
+                ),
               },
               {
                 path: AppRoute.SIGN_IN,
-                element: <Auth />,
+                element: (
+                  <PublicRoute>
+                    <Auth />
+                  </PublicRoute>
+                ),
               },
               {
                 path: AppRoute.SIGN_UP,
-                element: <Auth />,
+                element: (
+                  <PublicRoute>
+                    <Auth />
+                  </PublicRoute>
+                ),
               },
               {
                 path: AppRoute.DEALS,
-                element: <Deals />,
+                element: (
+                  <ProtectedRoute>
+                    <Deals />
+                  </ProtectedRoute>
+                ),
               },
             ],
           },
