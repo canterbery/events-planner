@@ -8,12 +8,22 @@ import {
   type UserGetAllResponseDto,
   type UserSignUpRequestDto,
 } from './libs/types/types.js';
+import { type IEncrypt } from '~/libs/packages/encrypt/encrypt.js';
+import { type IConfig } from '~/libs/packages/config/config.js';
 
 class UserService implements IService {
   private userRepository: UserRepository;
+  private encrypt: IEncrypt;
+  private config: IConfig;
 
-  public constructor(userRepository: UserRepository) {
+  public constructor(
+    userRepository: UserRepository,
+    encrypt: IEncrypt,
+    config: IConfig,
+  ) {
     this.userRepository = userRepository;
+    this.encrypt = encrypt;
+    this.config = config;
   }
 
   public find(): ReturnType<IService['find']> {
@@ -31,12 +41,20 @@ class UserService implements IService {
   public async create(
     payload: UserSignUpRequestDto,
   ): Promise<UserAuthResponseDto> {
+    const passwordSalt = await this.encrypt.generateSalt(
+      this.config.ENCRYPTION.USER_PASSWORD_SALT_ROUNDS,
+    );
+
+    const passwordHash = await this.encrypt.encrypt(
+      payload.password,
+      passwordSalt,
+    );
+
     const user = await this.userRepository.create(
       UserEntity.initializeNew({
         email: payload.email,
-        /** @todo replace with real implementation */
-        passwordSalt: 'SALT',
-        passwordHash: 'HASH',
+        passwordSalt,
+        passwordHash,
       }),
     );
 
