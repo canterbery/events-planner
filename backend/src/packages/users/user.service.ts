@@ -3,9 +3,10 @@ import { UserEntity } from '~/packages/users/user.entity.js';
 import { type UserRepository } from '~/packages/users/user.repository.js';
 
 import {
+  type UserAuthResponseDto,
+  type UserPrivateData,
   type UserGetAllResponseDto,
   type UserSignUpRequestDto,
-  type UserSignUpResponseDto,
 } from './libs/types/types.js';
 
 class UserService implements IService {
@@ -29,7 +30,7 @@ class UserService implements IService {
 
   public async create(
     payload: UserSignUpRequestDto,
-  ): Promise<UserSignUpResponseDto> {
+  ): Promise<UserAuthResponseDto> {
     const user = await this.userRepository.create(
       UserEntity.initializeNew({
         email: payload.email,
@@ -40,6 +41,22 @@ class UserService implements IService {
     );
 
     return user.toObject();
+  }
+
+  public async findByEmail(email: string): Promise<UserAuthResponseDto | null> {
+    const user = await this.userRepository.findByEmail(email);
+
+    return user ? user.toObject() : null;
+  }
+
+  public async findPrivateData(id: number): Promise<UserPrivateData | null> {
+    const user = await this.userRepository.find(id);
+
+    if (!user) {
+      return null;
+    }
+
+    return user.privateData;
   }
 
   public update(): ReturnType<IService['update']> {
