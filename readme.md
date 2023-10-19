@@ -1,6 +1,6 @@
 ## ℹ️ General Info
 
-Features: JWT authentication , password encryption , protected and public routes , sign-up/sign-in flows
+Features: JWT authentication , password encryption , protected and public routes , sign-up/sign-in flows with validation
 
 Pages flow: landing - sign-up/sign-in - deals
 
