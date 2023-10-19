@@ -1,26 +1,40 @@
-import { Header, RouterOutlet } from '~/libs/components/components.js';
-import { AppRoute } from '~/libs/enums/enums.js';
-import { useAppDispatch, useEffect, useLocation } from '~/libs/hooks/hooks.js';
-import { actions as userActions } from '~/slices/users/users.js';
+import { Header, Loader, RouterOutlet } from '~/libs/components/components.js';
+import { DataStatus } from '~/libs/enums/enums.js';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useEffect,
+} from '~/libs/hooks/hooks.js';
+import { actions as authActions } from '~/slices/auth/auth.js';
 
 const App: React.FC = () => {
-  const { pathname } = useLocation();
   const dispatch = useAppDispatch();
 
-  const isRoot = pathname === AppRoute.ROOT;
+  const { user, dataStatus } = useAppSelector(({ auth }) => ({
+    user: auth.user,
+    dataStatus: auth.dataStatus,
+  }));
+
+  const hasUser = Boolean(user);
+
+  const isLoading = !(
+    dataStatus === DataStatus.FULFILLED || dataStatus == DataStatus.REJECTED
+  );
 
   useEffect(() => {
-    if (isRoot) {
-      void dispatch(userActions.loadAll());
+    if (!hasUser) {
+      void dispatch(authActions.getCurrentUser());
     }
-  }, [isRoot, dispatch]);
+  }, [hasUser, dispatch]);
 
   return (
     <>
-      <Header />
-      <div>
-        <RouterOutlet />
-      </div>
+      <Loader isLoading={isLoading} hasOverlay type="circular">
+        <Header user={user} />
+        <div>
+          <RouterOutlet />
+        </div>
+      </Loader>
     </>
   );
 };
