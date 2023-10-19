@@ -1,3 +1,5 @@
+@use "src/assets/css/breakpoints.scss";
+
 .landingWrapper {
   display: flex;
   flex-direction: column;
@@ -16,7 +18,6 @@
   font-size: 64px;
   line-height: 80px;
   color: var(--white);
-  margin: 0;
   text-align: center;
 }
 
@@ -27,11 +28,44 @@
   color: var(--white);
   max-width: 50%;
   text-align: center;
-  margin: 0;
+  margin-bottom: 15px;
 }
 
 .getStartedBtn {
   background-color: transparent;
   color: var(--white);
   border: 1px solid var(--white);
+}
+
+@media only screen and (max-width: breakpoints.$large) {
+  .title {
+    font-size: 54px;
+  }
+
+  .description {
+    font-size: 18px;
+    max-width: 60%;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$medium) {
+  .title {
+    font-size: 34px;
+  }
+
+  .description {
+    font-size: 16px;
+    max-width: 70%;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$small) {
+  .title {
+    font-size: 24px;
+  }
+
+  .description {
+    font-size: 14px;
+    max-width: 90%;
+  }
 }
