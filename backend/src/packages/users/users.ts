@@ -13,6 +13,12 @@ export { userController, userService };
 export {
   type UserSignUpRequestDto,
   type UserSignUpResponseDto,
+  type UserSignInRequestDto,
+  type UserSignInResponseDto,
+  type UserPrivateData,
 } from './libs/types/types.js';
-export { userSignUpValidationSchema } from './libs/validation-schemas/validation-schemas.js';
+export {
+  userSignUpValidationSchema,
+  userSignInValidationSchema,
+} from './libs/validation-schemas/validation-schemas.js';
 export { UserModel } from './user.model.js';
