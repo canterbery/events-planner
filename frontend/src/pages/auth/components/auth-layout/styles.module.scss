@@ -1,3 +1,5 @@
+@use "src/assets/css/breakpoints.scss";
+
 .authLayout {
   display: flex;
   align-items: center;
@@ -39,4 +41,14 @@
   width: 100%;
   max-width: 350px;
   height: 100%;
+}
+
+@media only screen and (max-width: breakpoints.$medium) {
+  .backgroundImg {
+    display: none;
+  }
+
+  .scrollableFormWrapper {
+    margin: 0 auto;
+  }
 }
