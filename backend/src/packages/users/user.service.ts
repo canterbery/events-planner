@@ -26,8 +26,14 @@ class UserService implements IService {
     this.config = config;
   }
 
-  public find(): ReturnType<IService['find']> {
-    return Promise.resolve(null);
+  public async find(id: number): Promise<UserAuthResponseDto | null> {
+    const user = await this.userRepository.find(id);
+
+    if (!user) {
+      return null;
+    }
+
+    return user.toObject();
   }
 
   public async findAll(): Promise<UserGetAllResponseDto> {
