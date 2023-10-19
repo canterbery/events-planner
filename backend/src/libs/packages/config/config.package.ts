@@ -1,16 +1,24 @@
 import convict, { type Config as TConfig } from 'convict';
 import { config } from 'dotenv';
 
-import { AppEnvironment } from '~/libs/enums/enums.js';
+import { AppEnvironment, TokenExpirationTime } from '~/libs/enums/enums.js';
 import { type ILogger } from '~/libs/packages/logger/logger.js';
 
-import { type IConfig } from './libs/interfaces/interfaces.js';
-import { type EnvironmentSchema } from './libs/types/types.js';
+import {
+  type IAuthConfig,
+  type IConfig,
+} from './libs/interfaces/interfaces.js';
+import {
+  type EncryptConfig,
+  type EnvironmentSchema,
+} from './libs/types/types.js';
 
 class Config implements IConfig {
   private logger: ILogger;
 
   public ENV: EnvironmentSchema;
+  public AUTH: IAuthConfig;
+  public ENCRYPTION: EncryptConfig;
 
   public constructor(logger: ILogger) {
     this.logger = logger;
@@ -22,8 +30,9 @@ class Config implements IConfig {
       allowed: 'strict',
       output: (message) => this.logger.info(message),
     });
-
+    this.AUTH = this.authConfig;
     this.ENV = this.envSchema.getProperties();
+    this.ENCRYPTION = this.encryptionConfig;
     this.logger.info('.env file found and successfully parsed!');
   }
 
@@ -46,6 +55,14 @@ class Config implements IConfig {
           doc: 'Port for incoming connections',
           format: Number,
           env: 'PORT',
+          default: null,
+        },
+      },
+      JWT: {
+        SECRET_KEY: {
+          doc: 'Secret key for token generation',
+          format: String,
+          env: 'JWT_SECRET_KEY',
           default: null,
         },
       },
@@ -76,6 +93,18 @@ class Config implements IConfig {
         },
       },
     });
+  }
+
+  private get authConfig(): IAuthConfig {
+    return {
+      ALGORITHM: 'HS256',
+      EXPIRES_IN: TokenExpirationTime.ONE_DAY,
+    };
+  }
+  private get encryptionConfig(): EncryptConfig {
+    return {
+      USER_PASSWORD_SALT_ROUNDS: 10,
+    };
   }
 }
 

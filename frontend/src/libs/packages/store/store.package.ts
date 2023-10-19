@@ -13,6 +13,7 @@ import { userApi } from '~/packages/users/users.js';
 import { reducer as authReducer } from '~/slices/auth/auth.js';
 import { reducer as usersReducer } from '~/slices/users/users.js';
 import { reducer as dealsReducer } from '~/slices/deals/deals.js';
+import { storage } from '../storage/storage.js';
 
 type RootReducer = {
   auth: ReturnType<typeof authReducer>;
@@ -24,6 +25,7 @@ type ExtraArguments = {
   authApi: typeof authApi;
   userApi: typeof userApi;
   dealsApi: typeof dealsApi;
+  storage: typeof storage;
 };
 
 class Store {
@@ -58,6 +60,7 @@ class Store {
       authApi,
       userApi,
       dealsApi,
+      storage,
     };
   }
 }
