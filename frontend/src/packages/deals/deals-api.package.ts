@@ -23,7 +23,7 @@ class DealsApi extends HttpApi {
       {
         method: 'GET',
         contentType: ContentType.JSON,
-        hasAuth: false,
+        hasAuth: true,
       },
     );
 

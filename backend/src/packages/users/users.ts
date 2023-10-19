@@ -18,9 +18,11 @@ export {
   type UserSignInRequestDto,
   type UserSignInResponseDto,
   type UserPrivateData,
+  type UserAuthResponseDto,
 } from './libs/types/types.js';
 export {
   userSignUpValidationSchema,
   userSignInValidationSchema,
 } from './libs/validation-schemas/validation-schemas.js';
 export { UserModel } from './user.model.js';
+export { type UserService } from './user.service.js';
