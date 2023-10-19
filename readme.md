@@ -4,6 +4,8 @@ Features: JWT authentication , password encryption , protected and public routes
 
 Pages flow: landing - sign-up/sign-in - deals
 
+Deployed at : https://zenbit-7dc8d95cf111.herokuapp.com/
+
 ## 🖍 Requirements
 
 - [NodeJS](https://nodejs.org/en/) (18.x.x);
