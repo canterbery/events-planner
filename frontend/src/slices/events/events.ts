@@ -1,5 +1,5 @@
 import { loadAll } from './actions.js';
-import { actions } from './deals.slice.js';
+import { actions } from './events.slice.js';
 
 const allActions = {
   ...actions,
@@ -7,4 +7,4 @@ const allActions = {
 };
 
 export { allActions as actions };
-export { reducer } from './deals.slice.js';
+export { reducer } from './events.slice.js';

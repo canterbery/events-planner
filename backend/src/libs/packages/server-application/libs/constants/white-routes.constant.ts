@@ -13,6 +13,11 @@ const STRING_WHITE_ROUTES: readonly WhiteRoute<string>[] = [
   },
 
   {
+    routerPath: `/api/v1${ApiPath.EVENTS}`,
+    methods: ['GET'],
+  },
+
+  {
     routerPath: '/v1/documentation',
     methods: ['GET'],
   },
