@@ -1,5 +1,5 @@
 {
-  "name": "bsa-2023-writorium",
+  "name": "et-school-2024-events-planner",
   "workspaces": [
     "shared",
     "backend",

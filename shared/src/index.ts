@@ -42,3 +42,7 @@ export {
   type DealEntityInstance,
   DealsApiPath,
 } from './packages/deals/deals.js';
+export {
+  type EventEntityInstance,
+  EventsApiPath,
+} from './packages/events/events.js';
