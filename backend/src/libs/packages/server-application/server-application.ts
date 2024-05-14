@@ -3,6 +3,7 @@ import { database } from '~/libs/packages/database/database.js';
 import { logger } from '~/libs/packages/logger/logger.js';
 import { authController } from '~/packages/auth/auth.js';
 import { userController } from '~/packages/users/users.js';
+import { eventsController } from '~/packages/events/events.js';
 
 import { ServerApp } from './server-app.js';
 import { ServerAppApi } from './server-app-api.js';
@@ -14,6 +15,7 @@ const apiV1 = new ServerAppApi(
   ...authController.routes,
   ...userController.routes,
   ...dealController.routes,
+  ...eventsController.routes,
 );
 const serverApp = new ServerApp({
   config,
