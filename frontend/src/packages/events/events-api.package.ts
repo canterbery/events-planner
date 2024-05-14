@@ -3,8 +3,8 @@ import { HttpApi } from '~/libs/packages/api/api.js';
 import { type IHttp } from '~/libs/packages/http/http.js';
 import { type IStorage } from '~/libs/packages/storage/storage.js';
 
-import { DealsApiPath } from './libs/enums/enums.js';
-import { type DealEntityInstance } from './libs/types/types.js';
+import { EventsApiPath } from './libs/enums/enums.js';
+import { type EventEntityInstance } from './libs/types/types.js';
 
 type Constructor = {
   baseUrl: string;
@@ -12,23 +12,23 @@ type Constructor = {
   storage: IStorage;
 };
 
-class DealsApi extends HttpApi {
+class EventsApi extends HttpApi {
   public constructor({ baseUrl, http, storage }: Constructor) {
-    super({ path: ApiPath.DEALS, baseUrl, http, storage });
+    super({ path: ApiPath.EVENTS, baseUrl, http, storage });
   }
 
-  public async getAll(): Promise<{ items: DealEntityInstance[] }> {
+  public async getAll(): Promise<{ items: EventEntityInstance[] }> {
     const response = await this.load(
-      this.getFullEndpoint(DealsApiPath.ROOT, {}),
+      this.getFullEndpoint(EventsApiPath.ROOT, {}),
       {
         method: 'GET',
         contentType: ContentType.JSON,
-        hasAuth: true,
+        hasAuth: false,
       },
     );
 
-    return await response.json<{ items: DealEntityInstance[] }>();
+    return await response.json<{ items: EventEntityInstance[] }>();
   }
 }
 
-export { DealsApi };
+export { EventsApi };

@@ -3,29 +3,29 @@ import { createSlice } from '@reduxjs/toolkit';
 import { DataStatus } from '~/libs/enums/enums.js';
 import { type ValueOf } from '~/libs/types/types.js';
 
-import { type DealEntityInstance } from '~/packages/deals/deals.js';
+import { type EventEntityInstance } from '~/packages/events/events.js';
 import { loadAll } from './actions.js';
 
 type State = {
-  deals: DealEntityInstance[];
+  events: EventEntityInstance[];
   dataStatus: ValueOf<typeof DataStatus>;
 };
 
 const initialState: State = {
-  deals: [],
+  events: [],
   dataStatus: DataStatus.IDLE,
 };
 
 const { reducer, actions, name } = createSlice({
   initialState,
-  name: 'deals',
+  name: 'events',
   reducers: {},
   extraReducers(builder) {
     builder.addCase(loadAll.pending, (state) => {
       state.dataStatus = DataStatus.PENDING;
     });
     builder.addCase(loadAll.fulfilled, (state, action) => {
-      state.deals = action.payload.items;
+      state.events = action.payload.items;
       state.dataStatus = DataStatus.FULFILLED;
     });
     builder.addCase(loadAll.rejected, (state) => {
