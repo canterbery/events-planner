@@ -24,7 +24,7 @@ const Events: React.FC = () => {
       type="circular"
     >
       <div className={styles.wrapper}>
-        <p className={styles.title}>Open Deals</p>
+        <p className={styles.title}>Scheduled events : </p>
         <div className={styles.dealsWrapper}>
           {events.map((event) => (
             <EventCard event={event} key={event.id} />
