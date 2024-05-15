@@ -16,7 +16,7 @@ type Properties<T extends FieldValues> = {
   label: string;
   name: FieldPath<T>;
   placeholder?: string;
-  type?: 'text' | 'email';
+  type?: 'text' | 'email' | 'radio' | 'date';
   className?: string;
 };
 

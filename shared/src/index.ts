@@ -48,6 +48,9 @@ export {
 } from './packages/events/events.js';
 export {
   type ParticipantEntityInstance,
+  type ParticipantRegistrationRequestDto,
+  type ParticipantRegistrationResponseDto,
   ParticipantsApiPath,
   ParticipantsSource,
+  registrationValidationSchema,
 } from './packages/participants/participants.js';
