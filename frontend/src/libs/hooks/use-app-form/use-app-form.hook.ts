@@ -6,6 +6,7 @@ import {
   type FieldValues,
   type UseFormHandleSubmit,
   type ValidationMode,
+  type UseFormRegister,
 } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 
@@ -20,6 +21,7 @@ type Parameters<T extends FieldValues = FieldValues> = {
 type ReturnValue<T extends FieldValues = FieldValues> = {
   control: Control<T, null>;
   errors: FieldErrors<T>;
+  register: UseFormRegister<T>;
   handleSubmit: UseFormHandleSubmit<T>;
 };
 
@@ -32,6 +34,7 @@ const useAppForm = <T extends FieldValues = FieldValues>({
     control,
     handleSubmit,
     formState: { errors },
+    register,
   } = useForm<T>({
     mode,
     defaultValues,
@@ -42,6 +45,7 @@ const useAppForm = <T extends FieldValues = FieldValues>({
     control,
     errors,
     handleSubmit,
+    register,
   };
 };
 
