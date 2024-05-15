@@ -19,7 +19,7 @@ const STRING_WHITE_ROUTES: readonly WhiteRoute<string>[] = [
 
   {
     routerPath: `/api/v1${ApiPath.PARTICIPANTS}`,
-    methods: ['GET'],
+    methods: ['GET', 'POST'],
   },
 
   {
