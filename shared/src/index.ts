@@ -46,3 +46,8 @@ export {
   type EventEntityInstance,
   EventsApiPath,
 } from './packages/events/events.js';
+export {
+  type ParticipantEntityInstance,
+  ParticipantsApiPath,
+  ParticipantsSource,
+} from './packages/participants/participants.js';
