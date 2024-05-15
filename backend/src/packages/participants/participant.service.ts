@@ -1,7 +1,12 @@
 import { type IService } from '~/libs/interfaces/interfaces.js';
 
-import { type ParticipantEntityInstance } from './libs/types/types.js';
+import {
+  type ParticipantRegistrationRequestDto,
+  type ParticipantEntityInstance,
+  type ParticipantRegistrationResponseDto,
+} from './libs/types/types.js';
 import { type ParticipantRepository } from './participant.repository.js';
+import { ParticipantEntity } from './participant.entity.js';
 
 class ParticipantService implements IService {
   private participantRepository: ParticipantRepository;
@@ -22,8 +27,14 @@ class ParticipantService implements IService {
     };
   }
 
-  public create(): ReturnType<IService['create']> {
-    return Promise.resolve(null);
+  public async create(
+    payload: ParticipantRegistrationRequestDto,
+  ): Promise<ParticipantRegistrationResponseDto> {
+    const user = await this.participantRepository.create(
+      ParticipantEntity.initializeNew(payload),
+    );
+
+    return user.toObject();
   }
 
   public update(): ReturnType<IService['update']> {
