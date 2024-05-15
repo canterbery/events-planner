@@ -15,6 +15,7 @@ import { Auth } from '~/pages/auth/auth.js';
 import { Landing } from './pages/landing/landing.js';
 import { Events } from './pages/events/events.js';
 import { PublicRoute } from './libs/components/components.js';
+import { EventRegistration } from './pages/event-registration/event-registration.js';
 
 createRoot(document.querySelector('#root') as HTMLElement).render(
   <StrictMode>
@@ -54,6 +55,14 @@ createRoot(document.querySelector('#root') as HTMLElement).render(
                 element: (
                   <ProtectedRoute>
                     <Events />
+                  </ProtectedRoute>
+                ),
+              },
+              {
+                path: AppRoute.EVENT_REGISTRATION,
+                element: (
+                  <ProtectedRoute>
+                    <EventRegistration />
                   </ProtectedRoute>
                 ),
               },
