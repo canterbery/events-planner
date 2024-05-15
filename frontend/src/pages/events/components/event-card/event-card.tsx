@@ -1,13 +1,22 @@
 import { Button } from '~/libs/components/components.js';
 import styles from './styles.module.scss';
 import { type EventEntityInstance } from '~/packages/events/events.js';
-import { useCallback } from '~/libs/hooks/hooks.js';
+import { useCallback, useNavigate } from '~/libs/hooks/hooks.js';
+import { configureString } from '~/libs/helpers/helpers.js';
+import { AppRoute } from '~/libs/enums/enums.js';
 
 type Properties = {
   event: EventEntityInstance;
 };
 const EventCard: React.FC<Properties> = ({ event }) => {
-  const handleLogInClick = useCallback(() => {}, []);
+  const navigate = useNavigate();
+  const articleRouteById = configureString(AppRoute.EVENT_REGISTRATION, {
+    id: String(event.id),
+  }) as typeof AppRoute.EVENT_REGISTRATION;
+
+  const handleRegisterClick = useCallback(() => {
+    navigate(articleRouteById, { state: { id: event.id } });
+  }, [navigate, articleRouteById]);
   const handleSignUpClick = useCallback(() => {}, []);
   return (
     <div className={styles.wrapper}>
@@ -19,7 +28,7 @@ const EventCard: React.FC<Properties> = ({ event }) => {
         <Button
           label="Register"
           classname={styles.logInBtn}
-          onClick={handleLogInClick}
+          onClick={handleRegisterClick}
         />
         <Button
           label="View"
