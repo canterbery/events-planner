@@ -14,10 +14,18 @@ const EventCard: React.FC<Properties> = ({ event }) => {
     id: String(event.id),
   }) as typeof AppRoute.EVENT_REGISTRATION;
 
+  const participantsByEventId = configureString(AppRoute.EVENT_PARTICIPANTS, {
+    id: String(event.id),
+  }) as typeof AppRoute.EVENT_PARTICIPANTS;
+
   const handleRegisterClick = useCallback(() => {
     navigate(articleRouteById, { state: { id: event.id } });
-  }, [navigate, articleRouteById]);
-  const handleSignUpClick = useCallback(() => {}, []);
+  }, [navigate, articleRouteById, event.id]);
+
+  const handleViewClick = useCallback(() => {
+    navigate(participantsByEventId, { state: { id: event.id } });
+  }, [navigate, participantsByEventId, event.id]);
+
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>{event.title}</p>
@@ -33,7 +41,7 @@ const EventCard: React.FC<Properties> = ({ event }) => {
         <Button
           label="View"
           classname={styles.signUpBtn}
-          onClick={handleSignUpClick}
+          onClick={handleViewClick}
         />
       </div>
     </div>

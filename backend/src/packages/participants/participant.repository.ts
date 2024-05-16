@@ -29,6 +29,26 @@ class ParticipantRepository implements IRepository {
     return ParticipantEntity.initialize(item);
   }
 
+  public async getByEventId(
+    eventId: number,
+  ): Promise<ParticipantEntity[] | null> {
+    const participants = await this.participantModel.query().where({ eventId });
+
+    if (participants.length === 0) {
+      return null;
+    }
+    return participants.map((participant) => {
+      return ParticipantEntity.initialize({
+        id: participant.id,
+        fullName: participant.fullName,
+        email: participant.email,
+        birthDate: participant.birthDate,
+        source: participant.source,
+        eventId: participant.eventId,
+      });
+    });
+  }
+
   public update(): ReturnType<IRepository['update']> {
     return Promise.resolve(null);
   }

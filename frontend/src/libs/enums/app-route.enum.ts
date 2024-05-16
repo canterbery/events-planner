@@ -5,6 +5,7 @@ const AppRoute = {
   DEALS: '/deals',
   EVENTS: '/events',
   EVENT_REGISTRATION: '/event-registration/:id',
+  EVENT_PARTICIPANTS: '/event/:id/participants',
 } as const;
 
 export { AppRoute };

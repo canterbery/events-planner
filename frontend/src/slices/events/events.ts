@@ -1,9 +1,10 @@
-import { loadAll } from './actions.js';
+import { getParticipantsByEventId, loadAll } from './actions.js';
 import { actions } from './events.slice.js';
 
 const allActions = {
   ...actions,
   loadAll,
+  getParticipantsByEventId,
 };
 
 export { allActions as actions };

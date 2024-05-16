@@ -30,11 +30,25 @@ class ParticipantService implements IService {
   public async create(
     payload: ParticipantRegistrationRequestDto,
   ): Promise<ParticipantRegistrationResponseDto> {
-    const user = await this.participantRepository.create(
+    const participant = await this.participantRepository.create(
       ParticipantEntity.initializeNew(payload),
     );
 
-    return user.toObject();
+    return participant.toObject();
+  }
+
+  public async getByEventId(
+    eventId: number,
+  ): Promise<ParticipantRegistrationResponseDto[] | null> {
+    const participants = await this.participantRepository.getByEventId(eventId);
+
+    if (!participants) {
+      return null;
+    }
+
+    return participants.map((participant) => {
+      return participant.toObject();
+    });
   }
 
   public update(): ReturnType<IService['update']> {

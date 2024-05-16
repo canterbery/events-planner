@@ -1,4 +1,4 @@
-import { ApiPath, AuthApiPath } from '~/libs/enums/enums.js';
+import { ApiPath, AuthApiPath, EventsApiPath } from '~/libs/enums/enums.js';
 
 import { type WhiteRoute } from '../types/types.js';
 
@@ -20,6 +20,11 @@ const STRING_WHITE_ROUTES: readonly WhiteRoute<string>[] = [
   {
     routerPath: `/api/v1${ApiPath.PARTICIPANTS}`,
     methods: ['GET', 'POST'],
+  },
+
+  {
+    routerPath: `/api/v1${ApiPath.EVENTS}${EventsApiPath.$ID_PARTICIPANTS}`,
+    methods: ['GET'],
   },
 
   {
