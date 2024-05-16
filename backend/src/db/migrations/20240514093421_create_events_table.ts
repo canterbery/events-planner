@@ -36,7 +36,7 @@ const up = (knex: Knex): Promise<void> => {
           [ColumnName.TITLE]: 'Курс Solution Architecture ',
           [ColumnName.DESCRIPTION]:
             'Відкриваємо набір на Solution Architecture, мікромагістерську програму — для тих, хто хоче рухатися до позиції Solution Architect. За 10 тижнів ми не зробимо з вас архітектора програмного забезпечення — але це стане потужною базою, щоб рухатися до цієї позиції',
-          [ColumnName.EVENT_DATE]: '14.05.2024',
+          [ColumnName.EVENT_DATE]: '25.06.2024',
           [ColumnName.ORGANISER]: 'SET University',
         },
         {
@@ -58,6 +58,13 @@ const up = (knex: Knex): Promise<void> => {
             'Triangu за підтримки Amazon Web Services проводить оновлений курс вебінарів для технічних спеціалістів та всіх, хто зацікавлений у міграції своїх бізнес ресурсів на Amazon Web Services.',
           [ColumnName.EVENT_DATE]: '25.05.2024',
           [ColumnName.ORGANISER]: 'Triangu & AWS',
+        },
+        {
+          [ColumnName.TITLE]: 'Онлайн-курс «Проджект-менеджер в ІТ ч.2',
+          [ColumnName.DESCRIPTION]:
+            'Проджект-менеджмент в ІТ — курс для початківців в проєктному управлінні, які хочуть отримати базу для початку в даній професії від практикуючого ПМ експерта. ',
+          [ColumnName.EVENT_DATE]: '29.07.2024',
+          [ColumnName.ORGANISER]: 'Laba',
         },
       ]),
     );

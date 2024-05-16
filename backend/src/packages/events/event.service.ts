@@ -14,8 +14,10 @@ class EventService implements IService {
     return Promise.resolve(null);
   }
 
-  public async findAll(): Promise<{ items: EventEntityInstance[] }> {
-    const items = await this.eventRepository.findAll();
+  public async findAll(
+    sortOption: string | null,
+  ): Promise<{ items: EventEntityInstance[] }> {
+    const items = await this.eventRepository.findAll(sortOption);
 
     return {
       items: items.map((it) => it.toObject()),

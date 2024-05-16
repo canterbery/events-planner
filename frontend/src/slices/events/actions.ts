@@ -10,12 +10,12 @@ import {
 
 const loadAll = createAsyncThunk<
   { items: EventEntityInstance[] },
-  undefined,
+  string | null,
   AsyncThunkConfig
->(`${sliceName}/load-events`, (_, { extra }) => {
+>(`${sliceName}/load-events`, (sortOption, { extra }) => {
   const { eventsApi } = extra;
 
-  return eventsApi.getAll();
+  return eventsApi.getAll(sortOption);
 });
 
 const getParticipantsByEventId = createAsyncThunk<
