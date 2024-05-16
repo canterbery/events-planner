@@ -36,69 +36,69 @@ const up = (knex: Knex): Promise<void> => {
           [ColumnName.TITLE]: 'Курс Solution Architecture ',
           [ColumnName.DESCRIPTION]:
             'Відкриваємо набір на Solution Architecture, мікромагістерську програму — для тих, хто хоче рухатися до позиції Solution Architect. За 10 тижнів ми не зробимо з вас архітектора програмного забезпечення — але це стане потужною базою, щоб рухатися до цієї позиції',
-          [ColumnName.EVENT_DATE]: '25.06.2024',
+          [ColumnName.EVENT_DATE]: '12.06.2024',
           [ColumnName.ORGANISER]: 'SET University',
         },
         {
           [ColumnName.TITLE]: 'Онлайн-курс «Проджект-менеджер в ІТ',
           [ColumnName.DESCRIPTION]:
             'Проджект-менеджмент в ІТ — курс для початківців в проєктному управлінні, які хочуть отримати базу для початку в даній професії від практикуючого ПМ експерта. ',
-          [ColumnName.EVENT_DATE]: '15.05.2024',
+          [ColumnName.EVENT_DATE]: '12.05.2024',
           [ColumnName.ORGANISER]: 'Laba',
         },
         {
           [ColumnName.TITLE]: 'PM Meetup',
           [ColumnName.DESCRIPTION]: 'Ретроспектива, яку полюбить ваша команда.',
-          [ColumnName.EVENT_DATE]: '21.05.2024',
+          [ColumnName.EVENT_DATE]: '11.05.2024',
           [ColumnName.ORGANISER]: 'Avenga',
         },
         {
           [ColumnName.TITLE]: 'Вебінар “Backup and Disaster recovery”',
           [ColumnName.DESCRIPTION]:
             'Triangu за підтримки Amazon Web Services проводить оновлений курс вебінарів для технічних спеціалістів та всіх, хто зацікавлений у міграції своїх бізнес ресурсів на Amazon Web Services.',
-          [ColumnName.EVENT_DATE]: '25.05.2024',
+          [ColumnName.EVENT_DATE]: '11.04.2024',
           [ColumnName.ORGANISER]: 'Triangu & AWS',
         },
         {
           [ColumnName.TITLE]: 'Онлайн-курс «Проджект-менеджер в ІТ ч.2',
           [ColumnName.DESCRIPTION]:
             'Проджект-менеджмент в ІТ — курс для початківців в проєктному управлінні, які хочуть отримати базу для початку в даній професії від практикуючого ПМ експерта. ',
-          [ColumnName.EVENT_DATE]: '29.07.2024',
+          [ColumnName.EVENT_DATE]: '08.07.2024',
           [ColumnName.ORGANISER]: 'Laba',
         },
         {
           [ColumnName.TITLE]: 'Онлайн-співбесіда: QA Lead #8',
           [ColumnName.DESCRIPTION]:
             'Запрошуємо приєднатися на співбесіду на тренувальну вакансію JQA Lead.',
-          [ColumnName.EVENT_DATE]: '29.09.2024',
+          [ColumnName.EVENT_DATE]: '03.11.2024',
           [ColumnName.ORGANISER]: 'QA Україна',
         },
         {
           [ColumnName.TITLE]: 'Онлайн-співбесіда: QA Lead #9',
           [ColumnName.DESCRIPTION]:
             'Запрошуємо приєднатися на співбесіду на тренувальну вакансію JQA Lead.',
-          [ColumnName.EVENT_DATE]: '29.10.2024',
+          [ColumnName.EVENT_DATE]: '10.10.2024',
           [ColumnName.ORGANISER]: 'QA Україна',
         },
         {
           [ColumnName.TITLE]: 'Безкоштовний курс Java Базовий від ITVDN',
           [ColumnName.DESCRIPTION]:
             'Курс дає основи об’єктно-орієнтованої парадигми програмування (ООП) та її втілення в Java. ',
-          [ColumnName.EVENT_DATE]: '11.07.2024',
+          [ColumnName.EVENT_DATE]: '11.11.2024',
           [ColumnName.ORGANISER]: 'ITVDN',
         },
         {
           [ColumnName.TITLE]: 'Вебінар «Етика та відповідальність у HR»',
           [ColumnName.DESCRIPTION]:
             'Приєднуйтеся до вебінару, щоб зануритися в етичні аспекти сучасного управління персоналом.  ',
-          [ColumnName.EVENT_DATE]: '01.07.2024',
+          [ColumnName.EVENT_DATE]: '09.07.2024',
           [ColumnName.ORGANISER]: 'Цитрус',
         },
         {
           [ColumnName.TITLE]: 'Безкоштовний курс Java advanced від ITVDN',
           [ColumnName.DESCRIPTION]:
             'Курс дає поглибленні знання об’єктно-орієнтованої парадигми програмування (ООП) та її втілення в Java. ',
-          [ColumnName.EVENT_DATE]: '15.07.2024',
+          [ColumnName.EVENT_DATE]: '08.07.2024',
           [ColumnName.ORGANISER]: 'ITVDN',
         },
         {
