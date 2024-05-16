@@ -14,3 +14,4 @@ const participantsController = new ParticipantController(
 
 export { participantsController, participantsService };
 export { ParticipantModel } from './participant.model.js';
+export { ParticipantService } from './participant.service.js';
