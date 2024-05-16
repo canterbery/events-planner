@@ -9,13 +9,13 @@ import {
 } from 'shared/build/index.js';
 
 const loadAll = createAsyncThunk<
-  { items: EventEntityInstance[] },
-  string | null,
+  { items: EventEntityInstance[]; skip: number },
+  { skip: number; take: number; sortOption: string | null },
   AsyncThunkConfig
->(`${sliceName}/load-events`, (sortOption, { extra }) => {
+>(`${sliceName}/load-events`, (payload, { extra }) => {
   const { eventsApi } = extra;
 
-  return eventsApi.getAll(sortOption);
+  return eventsApi.getAll(payload);
 });
 
 const getParticipantsByEventId = createAsyncThunk<

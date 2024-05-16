@@ -14,13 +14,16 @@ class EventService implements IService {
     return Promise.resolve(null);
   }
 
-  public async findAll(
-    sortOption: string | null,
-  ): Promise<{ items: EventEntityInstance[] }> {
-    const items = await this.eventRepository.findAll(sortOption);
+  public async findAll(query: {
+    take: number;
+    skip: number;
+    sortOption: string | null;
+  }): Promise<{ items: EventEntityInstance[]; skip: number }> {
+    const events = await this.eventRepository.findAll(query);
 
     return {
-      items: items.map((it) => it.toObject()),
+      items: events.map((it) => it.toObject()),
+      skip: query.skip,
     };
   }
 

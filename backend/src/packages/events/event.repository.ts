@@ -13,13 +13,19 @@ class EventRepository implements IRepository {
     return Promise.resolve(null);
   }
 
-  public async findAll(sortOPtion: string | null): Promise<EventEntity[]> {
+  public async findAll(query: {
+    take: number;
+    skip: number;
+    sortOption: string | null;
+  }): Promise<EventEntity[]> {
+    const { skip, take, sortOption } = query;
     const events = await this.eventModel
       .query()
-      .orderBy(sortOPtion ?? 'id')
+      .orderBy(sortOption ?? 'id')
+      .page(skip / take, take)
       .execute();
 
-    return events.map((it) => EventEntity.initialize(it));
+    return events.results.map((it) => EventEntity.initialize(it));
   }
 
   public async create(entity: EventEntity): Promise<EventEntity> {
