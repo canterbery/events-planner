@@ -43,6 +43,7 @@ class EventController extends Controller {
         return this.getParticipantsByEventId(
           options as ApiHandlerOptions<{
             params: { id: number };
+            query: { fullName: string; email: string };
           }>,
         );
       },
@@ -65,11 +66,15 @@ class EventController extends Controller {
   private async getParticipantsByEventId(
     options: ApiHandlerOptions<{
       params: { id: number };
+      query: { fullName: string; email: string };
     }>,
   ): Promise<ApiHandlerResponse> {
     return {
       status: HttpCode.OK,
-      payload: await this.participantService.getByEventId(options.params.id),
+      payload: await this.participantService.getByEventId(
+        options.params.id,
+        options.query,
+      ),
     };
   }
 }

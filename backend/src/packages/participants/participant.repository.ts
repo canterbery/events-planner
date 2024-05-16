@@ -1,6 +1,8 @@
 import { type IRepository } from '~/libs/interfaces/interfaces.js';
 import { type ParticipantModel } from './participant.model.js';
 import { ParticipantEntity } from './participant.entity.js';
+import { getWhereFullNameQuery } from './libs/helpers/get-where-full-name-query.helper.js';
+import { getWhereEmailQuery } from './libs/helpers/get-where-email-query.helper.js';
 
 class ParticipantRepository implements IRepository {
   private participantModel: typeof ParticipantModel;
@@ -31,8 +33,13 @@ class ParticipantRepository implements IRepository {
 
   public async getByEventId(
     eventId: number,
+    query: { fullName: string; email: string },
   ): Promise<ParticipantEntity[] | null> {
-    const participants = await this.participantModel.query().where({ eventId });
+    const participants = await this.participantModel
+      .query()
+      .where({ eventId })
+      .where(getWhereFullNameQuery(query.fullName))
+      .where(getWhereEmailQuery(query.email));
 
     if (participants.length === 0) {
       return null;

@@ -39,8 +39,12 @@ class ParticipantService implements IService {
 
   public async getByEventId(
     eventId: number,
+    query: { fullName: string; email: string },
   ): Promise<ParticipantRegistrationResponseDto[] | null> {
-    const participants = await this.participantRepository.getByEventId(eventId);
+    const participants = await this.participantRepository.getByEventId(
+      eventId,
+      query,
+    );
 
     if (!participants) {
       return null;
