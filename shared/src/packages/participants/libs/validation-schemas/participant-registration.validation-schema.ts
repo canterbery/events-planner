@@ -19,8 +19,12 @@ const participantRegistration = joi.object<
       'string.email': 'Please enter valid email',
       'string.empty': 'Email is required',
     }),
-  fullName: joi.string().trim().required(),
-  birthDate: joi.string().trim().required(),
+  fullName: joi.string().trim().required().messages({
+    'string.empty': 'Please enter your name',
+  }),
+  birthDate: joi.string().trim().required().messages({
+    'string.empty': 'Please enter your date of birth',
+  }),
   source: joi.string().trim().required(),
   eventId: joi.number().required(),
 });
