@@ -10,7 +10,7 @@ import {
 } from '~/packages/participants/participants.js';
 
 type Properties = {
-  onSubmit: (payload: ParticipantRegistrationRequestDto) => void;
+  onSubmit: (payload: ParticipantRegistrationRequestDto) => Promise<void>;
   eventId: number;
 };
 

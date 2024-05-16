@@ -29,8 +29,11 @@ const EventCard: React.FC<Properties> = ({ event }) => {
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>{event.title}</p>
+      <p>{`Дата проведення : ${new Date(event.eventDate).toDateString()}`}</p>
       <br></br>
       <p>{event.description}</p>
+      <br></br>
+      <p className={styles.title}>{event.organiser}</p>
       <br></br>
       <div className={styles.buttonWrapper}>
         <Button

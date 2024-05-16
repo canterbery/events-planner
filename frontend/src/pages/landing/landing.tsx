@@ -11,14 +11,8 @@ const Landing: React.FC = () => {
   }, [navigate]);
   return (
     <div className={styles.landingWrapper}>
-      <p className={styles.title}>The chemical negatively charged</p>
-      <div className={styles.description}>
-        <p>
-          Numerous calculations predict, and experiments confirm, that the force
-          field reflects the beam, while the mass defect is not formed. The
-          chemical compound is negatively charged. Twhile the mass defect is
-        </p>
-      </div>
+      <p className={styles.title}>Event Registration App</p>
+      <div className={styles.description}></div>
       <Button
         type="button"
         label="Get Started"

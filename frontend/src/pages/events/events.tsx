@@ -49,25 +49,25 @@ const Events: React.FC = () => {
     return () => {
       dispatch(eventsActions.resetEvents());
     };
-  }, [handleLoadEvents]);
+  }, [handleLoadEvents, dispatch]);
   return (
-    <Loader
-      isLoading={dataStatus === DataStatus.PENDING}
-      hasOverlay
-      type="circular"
-    >
-      <div className={styles.wrapper}>
-        <p className={styles.title}>Scheduled events : </p>
-        <Select
-          options={options}
-          isClearable
-          placeholder="Sort by..."
-          onChange={(newValue): void => {
-            resetSkip();
-            setSortBy(newValue ?? null);
-          }}
-          value={sortBy}
-        />
+    <div className={styles.wrapper}>
+      <p className={styles.title}>Scheduled events : </p>
+      <Select
+        options={options}
+        isClearable
+        placeholder="Sort by..."
+        onChange={(newValue): void => {
+          resetSkip();
+          setSortBy(newValue ?? null);
+        }}
+        value={sortBy}
+      />
+      <Loader
+        isLoading={dataStatus === DataStatus.PENDING}
+        hasOverlay
+        type="circular"
+      >
         <InfiniteScroll
           hasMore={hasMore}
           className={styles.dealsWrapper}
@@ -79,8 +79,8 @@ const Events: React.FC = () => {
             <EventCard event={event} key={event.id} />
           ))}
         </InfiniteScroll>
-      </div>
-    </Loader>
+      </Loader>
+    </div>
   );
 };
 
