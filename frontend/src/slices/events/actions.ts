@@ -20,12 +20,12 @@ const loadAll = createAsyncThunk<
 
 const getParticipantsByEventId = createAsyncThunk<
   ParticipantRegistrationResponseDto[] | null,
-  number,
+  { eventId: number; fullName: string; email: string },
   AsyncThunkConfig
->(`${sliceName}/getArticle`, (id, { extra }) => {
+>(`${sliceName}/getArticle`, (payload, { extra }) => {
   const { eventsApi } = extra;
 
-  return eventsApi.getParticipantsByEventId(id);
+  return eventsApi.getParticipantsByEventId(payload);
 });
 
 export { loadAll, getParticipantsByEventId };

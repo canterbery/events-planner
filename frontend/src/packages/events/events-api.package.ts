@@ -34,16 +34,19 @@ class EventsApi extends HttpApi {
     return await response.json<{ items: EventEntityInstance[] }>();
   }
 
-  public async getParticipantsByEventId(
-    eventId: number,
-  ): Promise<ParticipantRegistrationResponseDto[] | null> {
+  public async getParticipantsByEventId(payload: {
+    eventId: number;
+    fullName: string;
+    email: string;
+  }): Promise<ParticipantRegistrationResponseDto[] | null> {
     const response = await this.load(
       this.getFullEndpoint(EventsApiPath.$ID_PARTICIPANTS, {
-        id: eventId.toString(),
+        id: payload.eventId.toString(),
       }),
       {
         method: 'GET',
         contentType: ContentType.JSON,
+        query: { fullName: payload.fullName, email: payload.email },
         hasAuth: false,
       },
     );
