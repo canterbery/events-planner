@@ -27,7 +27,12 @@ class EventController extends Controller {
     this.addRoute({
       path: EventsApiPath.ROOT,
       method: 'GET',
-      handler: () => this.findAll(),
+      handler: (options) =>
+        this.findAll(
+          options as ApiHandlerOptions<{
+            query: { sortOption: string | null };
+          }>,
+        ),
     });
 
     this.addRoute({
@@ -44,10 +49,16 @@ class EventController extends Controller {
     });
   }
 
-  private async findAll(): Promise<ApiHandlerResponse> {
+  private async findAll(
+    options: ApiHandlerOptions<{
+      query: { sortOption: string | null };
+    }>,
+  ): Promise<ApiHandlerResponse> {
     return {
       status: HttpCode.OK,
-      payload: await this.eventService.findAll(),
+      payload: await this.eventService.findAll(
+        options.query.sortOption ?? null,
+      ),
     };
   }
 

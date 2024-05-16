@@ -13,8 +13,11 @@ class EventRepository implements IRepository {
     return Promise.resolve(null);
   }
 
-  public async findAll(): Promise<EventEntity[]> {
-    const events = await this.eventModel.query().execute();
+  public async findAll(sortOPtion: string | null): Promise<EventEntity[]> {
+    const events = await this.eventModel
+      .query()
+      .orderBy(sortOPtion ?? 'id')
+      .execute();
 
     return events.map((it) => EventEntity.initialize(it));
   }
