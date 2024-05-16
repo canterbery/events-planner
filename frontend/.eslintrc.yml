@@ -20,8 +20,7 @@ rules:
   react/prop-types:
     - off
   react/jsx-no-bind:
-    - error
-    - ignoreRefs: true
+    - off
 
 overrides:
   - files:

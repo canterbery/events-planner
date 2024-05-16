@@ -18,13 +18,16 @@ class EventsApi extends HttpApi {
     super({ path: ApiPath.EVENTS, baseUrl, http, storage });
   }
 
-  public async getAll(): Promise<{ items: EventEntityInstance[] }> {
+  public async getAll(
+    sortOption: string | null,
+  ): Promise<{ items: EventEntityInstance[] }> {
     const response = await this.load(
       this.getFullEndpoint(EventsApiPath.ROOT, {}),
       {
         method: 'GET',
         contentType: ContentType.JSON,
         hasAuth: false,
+        query: { sortOption },
       },
     );
 

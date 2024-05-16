@@ -10,10 +10,8 @@ import { actions as authActions } from '~/slices/auth/auth.js';
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const { user, dataStatus } = useAppSelector(({ auth }) => ({
-    user: auth.user,
-    dataStatus: auth.dataStatus,
-  }));
+  const user = useAppSelector(({ auth }) => auth.user);
+  const dataStatus = useAppSelector(({ auth }) => auth.dataStatus);
 
   const hasUser = Boolean(user);
 
