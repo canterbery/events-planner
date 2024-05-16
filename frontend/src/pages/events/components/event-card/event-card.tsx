@@ -23,8 +23,10 @@ const EventCard: React.FC<Properties> = ({ event }) => {
   }, [navigate, articleRouteById, event.id]);
 
   const handleViewClick = useCallback(() => {
-    navigate(participantsByEventId, { state: { id: event.id } });
-  }, [navigate, participantsByEventId, event.id]);
+    navigate(participantsByEventId, {
+      state: { id: event.id, title: event.title },
+    });
+  }, [navigate, participantsByEventId, event.id, event.title]);
 
   return (
     <div className={styles.wrapper}>

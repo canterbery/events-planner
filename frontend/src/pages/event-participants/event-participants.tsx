@@ -14,9 +14,10 @@ import { ParticipantCard } from './components/participant-card/participant-card.
 
 type Parameters = {
   eventId: number;
+  title: string;
 };
 
-const EventParticipants: React.FC<Parameters> = ({ eventId }) => {
+const EventParticipants: React.FC<Parameters> = ({ eventId, title }) => {
   const dispatch = useAppDispatch();
 
   const [searchTermTitle, setSearchTermTitle] = useState('');
@@ -55,7 +56,7 @@ const EventParticipants: React.FC<Parameters> = ({ eventId }) => {
   }, [dispatch, eventId, debouncedTitle, debouncedEmail]);
   return (
     <div className={styles.wrapper}>
-      <p className={styles.title}>Event participants : </p>
+      <p className={styles.title}>{`${title} participants : `}</p>
       <div className={styles.searchPanel}>
         <div>
           <label htmlFor="search-input">Search by name: </label>
