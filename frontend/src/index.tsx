@@ -16,6 +16,7 @@ import { Landing } from './pages/landing/landing.js';
 import { Events } from './pages/events/events.js';
 import { PublicRoute } from './libs/components/components.js';
 import { EventRegistration } from './pages/event-registration/event-registration.js';
+import { EventParticipantsLayout } from './pages/event-participants/event-participants-layout.js';
 
 createRoot(document.querySelector('#root') as HTMLElement).render(
   <StrictMode>
@@ -63,6 +64,14 @@ createRoot(document.querySelector('#root') as HTMLElement).render(
                 element: (
                   <ProtectedRoute>
                     <EventRegistration />
+                  </ProtectedRoute>
+                ),
+              },
+              {
+                path: AppRoute.EVENT_PARTICIPANTS,
+                element: (
+                  <ProtectedRoute>
+                    <EventParticipantsLayout />
                   </ProtectedRoute>
                 ),
               },
