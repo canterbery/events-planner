@@ -6,6 +6,10 @@
     "frontend",
     "build"
   ],
+  "engines": {
+    "node": "18.x.x",
+    "npm": "9.x.x"
+  },
   "scripts": {
     "postinstall": "npm run build:shared",
     "build:shared": "npm run build -w shared",
