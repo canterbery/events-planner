@@ -2,7 +2,6 @@
 
 .wrapper {
   width: 100%;
-  height: calc(100vh - 80px);
   padding: 35px 60px 10px;
   display: flex;
   flex-direction: column;
@@ -16,10 +15,8 @@
 }
 
 .dealsWrapper {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  width: 60%;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: breakpoints.$extra-medium) {
