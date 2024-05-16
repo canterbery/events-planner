@@ -50,9 +50,23 @@ const up = (knex: Knex): Promise<void> => {
           [ColumnName.EVENT_ID]: 1,
         },
         {
+          [ColumnName.FULL_NAME]: 'Олег Матвієнко',
+          [ColumnName.EMAIL]: 'borgendom@gmail.com',
+          [ColumnName.BIRTH_DATE]: '04.11.1994',
+          [ColumnName.SOURCE]: ParticipantsSource.FRIENDS,
+          [ColumnName.EVENT_ID]: 1,
+        },
+        {
           [ColumnName.FULL_NAME]: 'Андрій Сергієнко',
           [ColumnName.EMAIL]: 'tempmail@gmail.com',
           [ColumnName.BIRTH_DATE]: '24.01.1954',
+          [ColumnName.SOURCE]: ParticipantsSource.MYSELF,
+          [ColumnName.EVENT_ID]: 2,
+        },
+        {
+          [ColumnName.FULL_NAME]: 'Олена Півень',
+          [ColumnName.EMAIL]: 'tempmail22@gmail.com',
+          [ColumnName.BIRTH_DATE]: '24.05.2004',
           [ColumnName.SOURCE]: ParticipantsSource.MYSELF,
           [ColumnName.EVENT_ID]: 2,
         },
@@ -61,6 +75,13 @@ const up = (knex: Knex): Promise<void> => {
           [ColumnName.EMAIL]: 'olegandri@gmail.com',
           [ColumnName.BIRTH_DATE]: '04.02.1974',
           [ColumnName.SOURCE]: ParticipantsSource.SOCIAL_MEDIA,
+          [ColumnName.EVENT_ID]: 3,
+        },
+        {
+          [ColumnName.FULL_NAME]: 'Іван Магнов',
+          [ColumnName.EMAIL]: 'ivamag@gmail.com',
+          [ColumnName.BIRTH_DATE]: '24.05.1994',
+          [ColumnName.SOURCE]: ParticipantsSource.FRIENDS,
           [ColumnName.EVENT_ID]: 3,
         },
         {
