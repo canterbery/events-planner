@@ -66,6 +66,48 @@ const up = (knex: Knex): Promise<void> => {
           [ColumnName.EVENT_DATE]: '29.07.2024',
           [ColumnName.ORGANISER]: 'Laba',
         },
+        {
+          [ColumnName.TITLE]: 'Онлайн-співбесіда: QA Lead #8',
+          [ColumnName.DESCRIPTION]:
+            'Запрошуємо приєднатися на співбесіду на тренувальну вакансію JQA Lead.',
+          [ColumnName.EVENT_DATE]: '29.09.2024',
+          [ColumnName.ORGANISER]: 'QA Україна',
+        },
+        {
+          [ColumnName.TITLE]: 'Онлайн-співбесіда: QA Lead #9',
+          [ColumnName.DESCRIPTION]:
+            'Запрошуємо приєднатися на співбесіду на тренувальну вакансію JQA Lead.',
+          [ColumnName.EVENT_DATE]: '29.10.2024',
+          [ColumnName.ORGANISER]: 'QA Україна',
+        },
+        {
+          [ColumnName.TITLE]: 'Безкоштовний курс Java Базовий від ITVDN',
+          [ColumnName.DESCRIPTION]:
+            'Курс дає основи об’єктно-орієнтованої парадигми програмування (ООП) та її втілення в Java. ',
+          [ColumnName.EVENT_DATE]: '11.07.2024',
+          [ColumnName.ORGANISER]: 'ITVDN',
+        },
+        {
+          [ColumnName.TITLE]: 'Вебінар «Етика та відповідальність у HR»',
+          [ColumnName.DESCRIPTION]:
+            'Приєднуйтеся до вебінару, щоб зануритися в етичні аспекти сучасного управління персоналом.  ',
+          [ColumnName.EVENT_DATE]: '01.07.2024',
+          [ColumnName.ORGANISER]: 'Цитрус',
+        },
+        {
+          [ColumnName.TITLE]: 'Безкоштовний курс Java advanced від ITVDN',
+          [ColumnName.DESCRIPTION]:
+            'Курс дає поглибленні знання об’єктно-орієнтованої парадигми програмування (ООП) та її втілення в Java. ',
+          [ColumnName.EVENT_DATE]: '15.07.2024',
+          [ColumnName.ORGANISER]: 'ITVDN',
+        },
+        {
+          [ColumnName.TITLE]: 'Вебінар «Як відкрити IT-компанію в 2024»',
+          [ColumnName.DESCRIPTION]:
+            'На вебінарі ви почуєте реальні історії успіху та невдач, що дозволять вам зрозуміти, які кроки варто робити, а від яких краще утриматись під час відкриття ІТ-компанії.',
+          [ColumnName.EVENT_DATE]: '01.06.2024',
+          [ColumnName.ORGANISER]: 'Jam',
+        },
       ]),
     );
 };
