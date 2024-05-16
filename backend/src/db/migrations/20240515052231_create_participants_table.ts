@@ -45,7 +45,7 @@ const up = (knex: Knex): Promise<void> => {
         {
           [ColumnName.FULL_NAME]: 'Кшиштиняк Вячеслав',
           [ColumnName.EMAIL]: 'wophantommail@gmail.com',
-          [ColumnName.BIRTH_DATE]: '14.05.1924',
+          [ColumnName.BIRTH_DATE]: '12.05.1924',
           [ColumnName.SOURCE]: ParticipantsSource.FRIENDS,
           [ColumnName.EVENT_ID]: 1,
         },
@@ -59,14 +59,14 @@ const up = (knex: Knex): Promise<void> => {
         {
           [ColumnName.FULL_NAME]: 'Андрій Сергієнко',
           [ColumnName.EMAIL]: 'tempmail@gmail.com',
-          [ColumnName.BIRTH_DATE]: '24.01.1954',
+          [ColumnName.BIRTH_DATE]: '04.01.1954',
           [ColumnName.SOURCE]: ParticipantsSource.MYSELF,
           [ColumnName.EVENT_ID]: 2,
         },
         {
           [ColumnName.FULL_NAME]: 'Олена Півень',
           [ColumnName.EMAIL]: 'tempmail22@gmail.com',
-          [ColumnName.BIRTH_DATE]: '24.05.2004',
+          [ColumnName.BIRTH_DATE]: '11.05.2004',
           [ColumnName.SOURCE]: ParticipantsSource.MYSELF,
           [ColumnName.EVENT_ID]: 2,
         },
@@ -80,7 +80,7 @@ const up = (knex: Knex): Promise<void> => {
         {
           [ColumnName.FULL_NAME]: 'Іван Магнов',
           [ColumnName.EMAIL]: 'ivamag@gmail.com',
-          [ColumnName.BIRTH_DATE]: '24.05.1994',
+          [ColumnName.BIRTH_DATE]: '03.05.1994',
           [ColumnName.SOURCE]: ParticipantsSource.FRIENDS,
           [ColumnName.EVENT_ID]: 3,
         },
