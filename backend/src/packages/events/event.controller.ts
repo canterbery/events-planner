@@ -30,7 +30,7 @@ class EventController extends Controller {
       handler: (options) =>
         this.findAll(
           options as ApiHandlerOptions<{
-            query: { sortOption: string | null };
+            query: { take: number; skip: number; sortOption: string | null };
           }>,
         ),
     });
@@ -52,14 +52,12 @@ class EventController extends Controller {
 
   private async findAll(
     options: ApiHandlerOptions<{
-      query: { sortOption: string | null };
+      query: { take: number; skip: number; sortOption: string | null };
     }>,
   ): Promise<ApiHandlerResponse> {
     return {
       status: HttpCode.OK,
-      payload: await this.eventService.findAll(
-        options.query.sortOption ?? null,
-      ),
+      payload: await this.eventService.findAll(options.query),
     };
   }
 
