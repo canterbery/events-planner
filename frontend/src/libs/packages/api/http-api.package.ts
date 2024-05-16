@@ -1,5 +1,5 @@
 import { type ContentType, ServerErrorType } from '~/libs/enums/enums.js';
-import { configureString } from '~/libs/helpers/helpers.js';
+import { configureString, constructUrl } from '~/libs/helpers/helpers.js';
 import { type HttpCode, type IHttp } from '~/libs/packages/http/http.js';
 import { HttpError, HttpHeader } from '~/libs/packages/http/http.js';
 import { type IStorage, StorageKey } from '~/libs/packages/storage/storage.js';
@@ -34,15 +34,19 @@ class HttpApi implements IHttpApi {
     this.storage = storage;
   }
 
+  private getUrl(path: string, query?: Record<string, unknown>): string {
+    return constructUrl({ path, queryParams: query });
+  }
+
   public async load(
     path: string,
     options: HttpApiOptions,
   ): Promise<HttpApiResponse> {
-    const { method, contentType, payload = null, hasAuth } = options;
+    const { method, contentType, payload = null, hasAuth, query } = options;
 
     const headers = await this.getHeaders(contentType, hasAuth);
 
-    const response = await this.http.load(path, {
+    const response = await this.http.load(this.getUrl(path, query), {
       method,
       headers,
       payload,
