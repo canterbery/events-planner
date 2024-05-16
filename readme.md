@@ -1,10 +1,11 @@
 ## ℹ️ General Info
 
-Features: JWT authentication , password encryption , protected and public routes , sign-up/sign-in flows with validation
+Features: JWT authentication , password encryption , protected and public routes , sign-up/sign-in flows with validation.
+infinite scroll, data sorting and filtering
 
-Pages flow: landing - sign-up/sign-in - deals
+Pages flow: landing - sign-up/sign-in - events - event registration or participants
 
-Deployed at : https://zenbit-7dc8d95cf111.herokuapp.com/
+Deployed at :https://zenbit-7dc8d95cf111.herokuapp.com/
 
 ## 🖍 Requirements
 
