@@ -22,13 +22,18 @@ const initialState: State = {
 const { reducer, actions, name } = createSlice({
   initialState,
   name: 'events',
-  reducers: {},
+  reducers: {
+    resetEvents(state) {
+      state.events = initialState.events;
+      state.dataStatus = DataStatus.IDLE;
+    },
+  },
   extraReducers(builder) {
     builder.addCase(loadAll.pending, (state) => {
       state.dataStatus = DataStatus.PENDING;
     });
     builder.addCase(loadAll.fulfilled, (state, action) => {
-      Number(action.payload.skip === 0)
+      Number(action.payload.skip) === 0
         ? (state.events = action.payload.items)
         : (state.events = [...state.events, ...action.payload.items]);
 

@@ -46,6 +46,9 @@ const Events: React.FC = () => {
 
   useEffect(() => {
     handleLoadEvents();
+    return () => {
+      dispatch(eventsActions.resetEvents());
+    };
   }, [handleLoadEvents]);
   return (
     <Loader
