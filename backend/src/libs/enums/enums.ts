@@ -1,6 +1,7 @@
 export {
   ApiPath,
   AuthApiPath,
+  EventsApiPath,
   AppEnvironment,
   ServerErrorType,
   ExceptionMessage,
